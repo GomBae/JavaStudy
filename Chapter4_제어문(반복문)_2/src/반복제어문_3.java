@@ -80,6 +80,7 @@ public class 반복제어문_3 {
 			}
 		}//while
 		
+		sc.close();
 		System.out.println("게임 결과는");
 		System.out.printf("%d전 %d승 %d패 %d무", count, win, lose, same);
 
