@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class exam {
 
@@ -65,11 +66,8 @@ public class exam {
 		
 		//3. 크기가 10인 정수형 배열을 생성하고 여기에 0부터 9까지의 값으로 배열을 채우는 프로그램 만들기
 //		int[] num=new int[10];
-//		int increase=0;
 //		for(int i=0;i<num.length;i++) {
-//			
-//			num[i] = increase;
-//			increase++;
+//			num[i] = i;
 //		}
 //		System.out.println(Arrays.toString(num));
 		
@@ -109,7 +107,7 @@ public class exam {
 //			arr[i]=(int)(Math.random()*10);
 //		}
 //		System.out.println(Arrays.toString(arr));
-//		//빈도를 저장하는 배열(0~9)
+//		빈도를 저장하는 배열(0~9)
 //		int[] result=new int[10];
 //		for(int i=0;i<arr.length;i++) {
 //			result[arr[i]]++;//arr[i] 번의 갯수를 1개 증가시킴 (자동으로 0으로 초기화 되어있기 때문에 가능)
@@ -127,33 +125,67 @@ public class exam {
     		 J H D C A
 
 		 */
-		char[] alpha=new char[5];
-		for(int i=0;i<alpha.length;i++) {
-			alpha[i] = (char)((Math.random()*25)+65);
-		}
-		System.out.println("정렬 전 : " + Arrays.toString(alpha));
+//		char[] alpha=new char[5];
+//		for(int i=0;i<alpha.length;i++) {
+//			alpha[i] = (char)((Math.random()*25)+65);
+//		}
+//		System.out.println("정렬 전 : " + Arrays.toString(alpha));
+//		
+//		for(int i=0;i<alpha.length-1;i++) {
+//			for(int j=i+1;j<alpha.length;j++) {
+//				if(alpha[i]>alpha[j]) {
+//					char temp=alpha[i];
+//					alpha[i] = alpha[j];
+//					alpha[j] = temp;
+//				}
+//			}
+//		}
+//		System.out.println("오름차순 : "+Arrays.toString(alpha));
+//		
+//		for(int i=0;i<alpha.length-1;i++) {
+//			for(int j=i+1;j<alpha.length;j++) {
+//				if(alpha[i]<alpha[j]) {
+//					char temp=alpha[i];
+//					alpha[i] = alpha[j];
+//					alpha[j] = temp;
+//				}
+//			}
+//		}
+//		System.out.println("내림차순 : "+Arrays.toString(alpha));
 		
-		for(int i=0;i<alpha.length-1;i++) {
-			for(int j=i+1;j<alpha.length;j++) {
-				if(alpha[i]>alpha[j]) {
-					char temp=alpha[i];
-					alpha[i] = alpha[j];
-					alpha[j] = temp;
+		//3명의 국어,영어,수학,총점,평균,등수
+		int[] kor=new int[3];
+		int[] eng=new int[3];
+		int[] math=new int[3];
+		int[] total=new int[3];
+		int[] rank=new int[3];
+		//int[][] 성적=new int[3][5]
+		double[] avg=new double[3];
+		Scanner sc = new Scanner(System.in);
+		for(int i=0;i<3;i++) {
+			System.out.println((i+1) + "번째 국어 입력 : ");
+			kor[i]=sc.nextInt();
+			System.out.println((i+1) + "번째 영어 입력 : ");
+			eng[i]=sc.nextInt();
+			System.out.println((i+1) + "번째 수학 입력 : ");
+			math[i]=sc.nextInt();
+			
+			total[i] = kor[i]+eng[i]+math[i];
+			avg[i]=total[i]/3.0;
+		}
+		
+		for(int i=0;i<3;i++) {
+			rank[i]=1;
+			for(int j=0;j<3;j++) {
+				if(total[i]<total[j]) {
+					rank[i]++;
 				}
 			}
 		}
-		System.out.println("오름차순 : "+Arrays.toString(alpha));
 		
-		for(int i=0;i<alpha.length-1;i++) {
-			for(int j=i+1;j<alpha.length;j++) {
-				if(alpha[i]<alpha[j]) {
-					char temp=alpha[i];
-					alpha[i] = alpha[j];
-					alpha[j] = temp;
-				}
-			}
+		for(int i=0;i<3;i++) {
+			System.out.printf("%d %d %d %d %.2f %d\n",kor[i],eng[i],math[i],total[i],avg[i],rank[i]);
 		}
-		System.out.println("내림차순 : "+Arrays.toString(alpha));
 	}
 
 }
