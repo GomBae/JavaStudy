@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  * 메소드 : 특정 작업을 하기 위한 명령문의 집합
  * 			메소드 vs 함수=> (독립적으로 생성) => 자바스크립트, C언어 ==> 기능은 같다
@@ -53,16 +55,95 @@
  * 					  결과값이 없는 경우 : void ==> return 생략가능(컴파일러가 자동 첨부)
  * 					  return의 위치는 메소드안에만 존재하면 된다
  * 					  return은 메소드 종료시에 사용(break와 동일)
- * 		6. 메소드 => 생각
- * 			1. 동작 과정(행위)
- * 			2. 화면에 출력된 내용	: 리턴형
- * 			3. 사용자에게 유도		: 매개변수
+ * 	5) 메소드 => 생각
+ * 		1. 동작 과정(행위)
+ * 		2. 화면에 출력된 내용	: 리턴형
+ * 		3. 사용자에게 유도		: 매개변수
+ * 
+ * 	6) 메소드 유형
+ * 결과값	    매개변수
+ * ------------------
+ * 	o         o	
+ * 					==> boolean isLogin(String id, String pwd)
+ * 					==> 로그인 : 사용자 입력(id,pwd) =>결과값 boolean
+ * 					==> 목록 : 사용자로부터 페이지번호를 받아서 => 이미지를 여러개 전송
+ * 					String[] movieList(int page)
+ * 					상세보기 : 사용자로부터 영화 고유번호를 받아서 상세보기에 출력할 데이터를 받는다
+ * 					String movieDetail(int movieNo)
+ * ------------------
+ *  o         x		
+ *  				==> double random() : 값만 전송
+ *  				==> String trim() :값만 전송
+ * ------------------
+ *  x         o		
+ *  				==> 메소드 안에서 자체 처리 (뉴스 출력)
+ *  				==> 리턴형이 없는 경우 void
+ *  				==> 파일 저장, 파일 수정
+ * ------------------	
+ *  x         x		
+ *  				==> 다음줄로 줄바꿈 
+ *  -----------------
  * 	
+ * 1~10까지 출력하는 메소드를 만든다 ==> 메소드 자체에서 처리 (리턴형x 매개변수x)
+ * 1~10까지 합을 구해라 ==> (리턴o 매개변수x)
+ * 1~n까지 합을 구해라 ==> (리턴o 매개변수o)
+ * 사용자로부터 단을 받아서 해당 구구단을 출력(리턴형x 매개변수o)
+ * 
+ * 매개변수는 사용자로부터 받는 값
+ * Scanner : 매개변수
+ * 웹,윈도우 : 입력창(검색,로그인,회원가입)
+ * 사용자가 요구할때 => 매개변수 존재
+ * 
  */
-public class 메소드정의_1 {
 
+public class 메소드정리_1 {
+
+	//1~10까지 출력하는 메소드를 만든다 ==> 메소드 자체에서 처리 (리턴형x 매개변수x)
+	static void print() {
+		for(int i=1;i<=10;i++) {
+			System.out.print(i + " ");
+		}
+	}
+	
+	//1~10까지 합을 구해라 ==> (리턴o 매개변수x)
+	static int sum() {
+		int sum=0;
+		for(int i=1;i<=10;i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	
+	//1~n까지 합을 구해라 ==> (리턴o 매개변수o)
+	static int inputSum(int num) {
+		int sum=0;
+		for(int i=1;i<=num;i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	
+	//사용자로부터 단을 받아서 해당 구구단을 출력(리턴형x 매개변수o)
+	static void gugudan(int dan) {
+		for(int i=1;i<=9;i++) {
+			System.out.printf("%d * %d = %d\n",dan,i,dan*i);
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//메소드 호출
+		//메소드는 호출하면 처음부터 return이 존재하는곳 까지 수행 ==> 호출한 위치로 복귀
+		print();
+		System.out.println();
+		System.out.println(sum());
+		Scanner sc = new Scanner(System.in);
+		System.out.print("수를 입력 : ");
+		int result = inputSum(sc.nextInt());
+		System.out.println(result);
+		gugudan(7);
+		
+		
+		
 
 	}
 
