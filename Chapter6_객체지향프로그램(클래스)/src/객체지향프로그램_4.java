@@ -123,7 +123,7 @@ public class 객체지향프로그램_4 {
 					music[k].album=album.get(j).text();
 					String s=etc.get(j).text();
 					music[k].state=s.replaceAll("[^가-힣]", "");
-					music[k].poster=poster.get(j).attr(j);
+//					music[k].poster=poster.get(j).attr(j);
 //					music[k].idcrement=Integer.parseInt(s.replaceAll("[^0-9]", ""));
 //					System.out.println(k+1);
 //					System.out.println(title.get(j).text());
