@@ -1,10 +1,10 @@
 
-public class Git_test {
+public class 메소드4_호출 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.out.println("hi");
+		메소드_4.print();
 	}
 
 }
