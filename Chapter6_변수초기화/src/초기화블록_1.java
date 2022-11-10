@@ -93,6 +93,7 @@ class Movie{
 	String title;
 	String story;
 	String reserve;
+	
 }
 //메소드 중심 : 데이터관리 (액션 클래스)
 class MovieSystem{
