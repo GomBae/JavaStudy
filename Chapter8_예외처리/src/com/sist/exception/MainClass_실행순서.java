@@ -15,7 +15,7 @@ public class MainClass_실행순서 {
 //			System.out.println(10/0); //에러 발생시 catch절로 이동해서 종료됨(밑에 catch절 실행안함)
 //			System.out.println(str.trim());
 //			B b=(B)new A(); //에러
-			A a=new A();
+			A a=new B();
 			B b=(B)a;
 		}catch(ArrayIndexOutOfBoundsException ex) {
 			//배열 범위를 초과할 때 처리하는 예외처리 ==> 한개만 수행
