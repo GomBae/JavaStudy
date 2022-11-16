@@ -76,16 +76,54 @@ package com.sist.exception;
  *     4. 사용자 정의 예외처리
  *     
  *     1. 직접처리 (예외복구) : 웹, 데이터베이스는 CheckException (무조건 예외처리를 해야한다)
+ *     2. 형식
+ *     try
+ *     {
+ *        정상수행이 가능한 코드 (에러발생 확률이 있는코드)
+ *     }
+ *     catch(예외처리 종류)
+ *     {
+ *        에러가 발생했을때 처리하는 영역 ==> 에러확인 ==> 예상되는 예외처리 ==> catch 여러번 사용 가능
+ *     }
+ *     finally
+ *     {
+ *        try, catch 수행여부에 상관없이 무조건 수행 ==> 생략가능
+ *        파일 닫기, 오라클 닫기, 서버 닫기 .... 
+ *     }
+ *     
+ *     ** 예외처ㄹ
+ *     1. 예상되는 에러
+ *      예) 두개의 정수의 문자열을 받아서 정수배열에 저장하고 저장된 데이터를 나누기 하는 프로그램 제작 
+ *      
+ *     
  */
 public class MainClass_예외처리 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		try {
-			
-		}catch(Exception e) {
-			
+//		try {
+//			int r=(int)(Math.random()*3);
+//			for(int i=1;i<=10;i++) {
+//				if(r==0) {
+//					i--;
+//					continue;
+//				}
+//				
+//				System.out.println(i+"-"+(i/r));
+//			}
+//		}catch(Exception e) {
+//			e.printStackTrace();//에러확인
+//		}
+		
+		//try~catch는 부분적으로 사용이 가능
+		for(int i=1;i<=10;i++) {
+			try {
+				int r=(int)(Math.random()*3);
+				System.out.println(i+"-"+(i/r));
+			}catch(Exception e) {
+				i--;
+			}
 		}
 	}
 
