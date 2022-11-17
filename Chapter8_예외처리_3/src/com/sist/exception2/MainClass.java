@@ -24,9 +24,10 @@ public class MainClass {
         	int m=menu();
         	if(m==8) {
         		System.out.println("프로그램 종료");
+        		
         		break;
         	}else {
-        		try {
+        		try{
         		MusicVO[] music=ms.musicData(m);
         		for(int i=0;i<music.length;i++) {
         			System.out.println((i+1)+". "+music[i].getTitle());
@@ -40,6 +41,8 @@ public class MainClass {
         	}
         }
         
+        
 	}
+	
 
 }
