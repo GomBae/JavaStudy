@@ -77,7 +77,7 @@ package com.sist.string;
  *     
  *     1. indexOf : 앞에서부터 찾기
  *        public int indexOf(char c)
- *        public int indexOf(String s)
+ *        public int indexOf(String s) : 문자나 문자열이 전달된 인덱스 이후 처음으로 등장하는 인덱스 반환
  *        
  *     2. lastIndexOf : 뒤에서부터 찾기
  *        public int lastIndexOf(char c)
