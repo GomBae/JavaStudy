@@ -1,0 +1,36 @@
+package com.sist.io;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//업로드
+public class MainClass_FileCopy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try {
+			FileInputStream fis=new FileInputStream("c:\\javaDev\\genie.txt");
+			FileOutputStream fos=new FileOutputStream("c:\\download\\genie.txt");
+//			int i=0;
+//			while((i=fis.read())!=-1) {
+//				fos.write(i);
+//			}
+//			fis.close();
+//			fos.close();
+			byte[] buffer=new byte[1024];//클라이언트에서 서버로 파일을 전송하는 방법
+			//TCP(1024) / UDP(512)
+			int i=0;//글자번호가 아니다 (읽은 byte수)
+			while((i=fis.read(buffer,0,1024))!=-1) {
+				fos.write(buffer,0,i);//서버로 전송
+			}
+			fis.close();
+			fos.close();
+			System.out.println("파일 카피 완료");
+			
+		}catch(Exception e) {
+			
+		}
+	}
+
+}
